@@ -1,0 +1,18 @@
+{
+  "features": [
+    "torso_angle",
+    "neck_angle",
+    "shoulder_tilt",
+    "hip_tilt",
+    "head_forward_z",
+    "head_to_shoulder"
+  ],
+  "label_names": {
+    "0": "Good",
+    "1": "Slight Slouch",
+    "2": "Heavy Slouch",
+    "3": "Lean Left",
+    "4": "Lean Right"
+  },
+  "model_type": "RandomForestClassifier"
+}

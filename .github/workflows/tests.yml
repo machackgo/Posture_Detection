@@ -4,6 +4,23 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: posturepal_model
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Smoke test (load model)
+        run: python -c "from infer_runtime import PostureModel; pm=PostureModel(); print('labels', pm.label_names)"name: local-tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

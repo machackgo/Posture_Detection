@@ -12,19 +12,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install deps
+      - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Smoke test (load model)
-        run: python -c "from infer_runtime import PostureModel; pm=PostureModel(); print('labels', pm.label_names)"name: local-tests
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install -r posturepal_model/requirements.txt
-      - run: python -c "from posturepal_model.infer_runtime import PostureModel; pm=PostureModel(); print('labels', pm.label_names)"
+        run: python -c "from infer_runtime import PostureModel; pm=PostureModel(); print('labels', pm.label_names)"
